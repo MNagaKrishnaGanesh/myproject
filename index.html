@@ -1,0 +1,1152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GradCircle | Build a Body of Work</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #ff694f;
+    --purple: #755bd5;
+    --dark: #171a29;
+    --muted: #727587;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fffdfb;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 5% 65%, rgba(91,117,255,.23), transparent 34%),
+        radial-gradient(ellipse at 95% 65%, rgba(255,111,78,.25), transparent 32%),
+        radial-gradient(ellipse at 50% 0%, rgba(255,214,196,.65), transparent 55%),
+        linear-gradient(120deg,#f9eeea,#fffdf9 50%,#f9eeeb);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(40,40,60,.035) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(40,40,60,.035) 1px,transparent 1px);
+    background-size: 45px 45px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+    pointer-events: none;
+}
+
+/* ================= BACKGROUND ORBS ================= */
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(3px);
+    pointer-events: none;
+    animation: float 9s ease-in-out infinite;
+}
+
+.orb-one {
+    width: 260px;
+    height: 260px;
+    background: linear-gradient(135deg,#7589ff,#b9baff);
+    opacity: .22;
+    left: -110px;
+    top: 30%;
+}
+
+.orb-two {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg,#ff9c75,#ffcfac);
+    opacity: .24;
+    right: -130px;
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.orb-three {
+    width: 120px;
+    height: 120px;
+    background: #ffb8a5;
+    opacity: .2;
+    right: 20%;
+    top: 15%;
+    animation-delay: 4s;
+}
+
+/* ================= FLOATING SCENE ================= */
+
+.float-scene {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.float-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 17px;
+    border-radius: 17px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.9);
+    box-shadow:
+        0 15px 40px rgba(40,35,70,.09),
+        inset 0 1px 0 rgba(255,255,255,.9);
+    animation: float 7s ease-in-out infinite;
+}
+
+.float-card strong {
+    display: block;
+    color: #292b3b;
+    font-size: 12px;
+}
+
+.float-card small {
+    display: block;
+    margin-top: 4px;
+    color: #858697;
+    font-size: 10px;
+}
+
+.float-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 21px;
+}
+
+.purple-icon {
+    background: #eeebff;
+    color: #7954bd;
+}
+
+.orange-icon {
+    background: #fff0e9;
+    color: #fa7955;
+}
+
+.green-icon {
+    background: #e4f8ef;
+    color: #27a879;
+}
+
+.blue-icon {
+    background: #e8f0ff;
+    color: #5476ce;
+}
+
+.float-one {
+    top: 34%;
+    left: 5%;
+}
+
+.float-two {
+    top: 27%;
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+.float-three {
+    bottom: 27%;
+    left: 10%;
+    animation-delay: 2.5s;
+}
+
+.float-four {
+    bottom: 30%;
+    right: 8%;
+    animation-delay: 3.5s;
+}
+
+.float-five {
+    top: 15%;
+    left: 25%;
+    animation-delay: 1s;
+    transform: scale(.85);
+}
+
+.float-six {
+    top: 17%;
+    right: 25%;
+    animation-delay: 2s;
+    transform: scale(.85);
+}
+
+/* ORBIT RINGS */
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(119,99,204,.15);
+    border-radius: 50%;
+    animation: rotate 30s linear infinite;
+}
+
+.orbit-one {
+    width: 430px;
+    height: 430px;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.orbit-two {
+    width: 540px;
+    height: 540px;
+    top: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: dashed;
+    opacity: .5;
+}
+
+/* SPARKLES */
+
+.sparkle {
+    position: absolute;
+    color: #ff967b;
+    font-size: 23px;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+.sparkle-one {
+    top: 25%;
+    left: 16%;
+}
+
+.sparkle-two {
+    top: 50%;
+    right: 17%;
+    animation-delay: 1s;
+}
+
+.sparkle-three {
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 2s;
+}
+
+.sparkle-four {
+    top: 18%;
+    right: 10%;
+    animation-delay: .5s;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    width: min(1160px, 92%);
+    margin-top: 22px;
+    padding: 12px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 20;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 50px;
+    box-shadow:
+        0 12px 40px rgba(50,40,40,.09),
+        inset 0 1px 0 white;
+    transition: .3s;
+}
+
+.navbar:hover {
+    box-shadow: 0 16px 45px rgba(50,40,40,.13);
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #19466e;
+    padding-left: 10px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: var(--primary);
+    animation: rotate 15s linear infinite;
+}
+
+.logo span:last-child {
+    color: #70899b;
+    font-weight: 500;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444456;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px 14px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    background: rgba(255,105,79,.09);
+}
+
+.nav-links .contact-btn {
+    background: var(--dark);
+    color: white;
+    padding: 13px 22px;
+    box-shadow: 0 6px 18px rgba(20,20,30,.15);
+}
+
+.nav-links .contact-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(249,99,73,.25);
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+    width: 100%;
+    max-width: 1050px;
+    text-align: center;
+    padding: 105px 20px 40px;
+    position: relative;
+    z-index: 5;
+    animation: fadeUp 1s ease both;
+}
+
+/* TRUST BADGE */
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    margin-bottom: 28px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,.95);
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 20px rgba(0,0,0,.04);
+    font-size: 12px;
+    font-weight: 600;
+    color: #575b70;
+}
+
+.trust-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #36b88b;
+    box-shadow: 0 0 0 4px rgba(54,184,139,.13);
+}
+
+.trust-badge strong {
+    color: #7954bd;
+}
+
+/* HEADING */
+
+.hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(40px, 6.2vw, 76px);
+    line-height: 1.13;
+    letter-spacing: -4px;
+    font-weight: 800;
+    color: #191b29;
+    margin-bottom: 24px;
+}
+
+.hero h1 .highlight {
+    background: linear-gradient(100deg,#ff604c 5%,#e66c80 48%,#6956c9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* SUBTITLE */
+
+.subtitle {
+    max-width: 620px;
+    margin: 0 auto 32px;
+    color: #66697b;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.9;
+}
+
+/* BUTTONS */
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 25px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(110deg,#ff6049,#fa7955);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 9px 25px rgba(249,99,73,.27);
+    transition: .35s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(249,99,73,.35);
+}
+
+.cta-btn span {
+    font-size: 19px;
+    transition: .3s;
+}
+
+.cta-btn:hover span {
+    transform: translateX(5px);
+}
+
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    padding: 15px 23px;
+    border: 1px solid rgba(30,30,50,.12);
+    background: rgba(255,255,255,.7);
+    border-radius: 12px;
+    color: #292b3b;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.secondary-btn:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+
+/* ================= PARTNERS ================= */
+
+.partners {
+    width: min(1050px,90%);
+    margin-top: auto;
+    padding: 25px 10px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    position: relative;
+    z-index: 5;
+}
+
+.partners-title {
+    font-size: 11px;
+    color: #a05c65;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.partner {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #414252;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.1;
+    transition: .3s;
+}
+
+.partner:hover {
+    transform: translateY(-4px);
+    color: #ff694f;
+}
+
+.partner-symbol {
+    font-size: 25px;
+    color: #8c8ba3;
+}
+
+.partner small {
+    display: block;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-top: 4px;
+    color: #9696a4;
+}
+
+/* ================= TRUST STRIP ================= */
+
+.trust-strip {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 18px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    background: rgba(255,255,255,.53);
+    border-top: 1px solid rgba(255,255,255,.85);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #626476;
+}
+
+.trust-item span {
+    color: #39a985;
+    font-size: 17px;
+}
+
+/* ================= PROGRAMS ================= */
+
+.content-section {
+    padding: 100px 7%;
+    text-align: center;
+    background: #fffdfb;
+}
+
+.section-tag {
+    color: #ff7055;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.content-section h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(28px,4vw,44px);
+    letter-spacing: -1.5px;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    color: var(--muted);
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+    max-width: 1050px;
+    margin: 45px auto 0;
+    text-align: left;
+}
+
+.program-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid #eeeaf0;
+    box-shadow: 0 10px 30px rgba(30,30,50,.035);
+    transition: .35s;
+}
+
+.program-card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -50px;
+    top: -50px;
+    background: rgba(255,105,79,.08);
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.program-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 20px 40px rgba(30,30,50,.09);
+    border-color: #ffe0d8;
+}
+
+.program-card:hover::before {
+    transform: scale(1.7);
+}
+
+.program-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background: #fff0eb;
+    color: #fa6c50;
+    border-radius: 15px;
+    font-size: 23px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.program-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.program-card p {
+    color: #777989;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #191b29;
+    color: white;
+    text-align: center;
+    padding: 40px 15px;
+    font-size: 12px;
+}
+
+footer span {
+    color: #ff8064;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sparkle {
+    0%,100% {
+        opacity: .3;
+        transform: scale(.8) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(25deg);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px) {
+    .float-five,
+    .float-six {
+        display: none;
+    }
+
+    .float-one {
+        left: 2%;
+    }
+
+    .float-two {
+        right: 2%;
+    }
+
+    .navbar {
+        width: 95%;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 11px 10px;
+    }
+}
+
+@media(max-width:768px) {
+    .navbar {
+        width: 94%;
+        padding: 14px;
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 22px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+        padding: 9px 11px;
+    }
+
+    .hero-content {
+        padding-top: 80px;
+        padding-bottom: 55px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .float-card {
+        transform: scale(.8);
+    }
+
+    .float-three,
+    .float-four,
+    .orbit-two {
+        display: none;
+    }
+
+    .partners {
+        gap: 20px;
+    }
+
+    .trust-strip {
+        gap: 17px;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:500px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .navbar {
+        margin-top: 12px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .hero-content {
+        padding: 65px 18px 55px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -1.8px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .trust-badge {
+        font-size: 10px;
+        padding: 9px 12px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-btn,
+    .secondary-btn {
+        width: 100%;
+        max-width: 290px;
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    .float-card,
+    .orbit,
+    .sparkle {
+        display: none;
+    }
+
+    .partners {
+        gap: 18px;
+        padding: 25px 10px;
+    }
+
+    .partners-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .partner {
+        font-size: 13px;
+    }
+
+    .partner-symbol {
+        font-size: 19px;
+    }
+
+    .partner small {
+        font-size: 7px;
+    }
+
+    .trust-strip {
+        gap: 13px;
+    }
+
+    .trust-item {
+        font-size: 10px;
+    }
+
+    .content-section {
+        padding: 70px 6%;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media(prefers-reduced-motion:reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero" id="home">
+
+    <!-- BACKGROUND ORBS -->
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <!-- FLOATING ANIMATION SCENE -->
+    <div class="float-scene">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="sparkle sparkle-one">✦</div>
+        <div class="sparkle sparkle-two">✧</div>
+        <div class="sparkle sparkle-three">✦</div>
+        <div class="sparkle sparkle-four">✧</div>
+
+        <div class="float-card float-one">
+            <div class="float-icon purple-icon">✦</div>
+            <div>
+                <strong>Real-world Projects</strong>
+                <small>Learn by doing</small>
+            </div>
+        </div>
+
+        <div class="float-card float-two">
+            <div class="float-icon orange-icon">↗</div>
+            <div>
+                <strong>Research & Innovation</strong>
+                <small>Ideas into impact</small>
+            </div>
+        </div>
+
+        <div class="float-card float-three">
+            <div class="float-icon green-icon">✓</div>
+            <div>
+                <strong>Achievement Unlocked</strong>
+                <small>Build your portfolio</small>
+            </div>
+        </div>
+
+        <div class="float-card float-four">
+            <div class="float-icon blue-icon">◎</div>
+            <div>
+                <strong>Global Opportunities</strong>
+                <small>Think beyond borders</small>
+            </div>
+        </div>
+
+        <div class="float-card float-five">
+            <div class="float-icon orange-icon">💡</div>
+            <div>
+                <strong>Creative Ideas</strong>
+                <small>Imagine more</small>
+            </div>
+        </div>
+
+        <div class="float-card float-six">
+            <div class="float-icon purple-icon">⌘</div>
+            <div>
+                <strong>Student Research</strong>
+                <small>Discover something new</small>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">✳</span>
+            Grad<span>circle</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#team">Team</a>
+            <a href="#programs">Summer Programs</a>
+            <a href="#internships">Internships</a>
+            <a href="#research">Research</a>
+            <a href="#contact" class="contact-btn">Contact Us ↗</a>
+        </div>
+
+    </nav>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+
+        <div class="trust-badge">
+            <span class="trust-dot"></span>
+            Trusted by families from
+            <strong>300+ Leading Schools</strong>
+        </div>
+
+        <h1>
+            Don't Just Build a Resume.<br>
+            <span class="highlight">Build a Body of Work.</span>
+        </h1>
+
+        <p class="subtitle">
+            Solve Real Problems. Publish Real Research.
+            Pitch Real Ideas. Turn your curiosity into meaningful achievements.
+        </p>
+
+        <div class="button-group">
+
+            <a href="#contact" class="cta-btn">
+                Discuss your Plans with an Expert
+                <span>→</span>
+            </a>
+
+            <a href="#programs" class="secondary-btn">
+                Explore Programs
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- PARTNERS -->
+    <div class="partners">
+
+        <div class="partners-title">
+            Strategic Partnerships
+        </div>
+
+        <div class="partner">
+            <span class="partner-symbol">✳</span>
+            <div>
+                MISTI
+                <small>MIT GLOBAL EXPERIENCES</small>
+            </div>
+        </div>
+
+        <div class="partner">
+            <span class="partner-symbol">◉</span>
+            <div>
+                MIT Center
+                <small>INTERNATIONAL STUDIES</small>
+            </div>
+        </div>
+
+        <div class="partner">
+            <span class="partner-symbol">♛</span>
+            <div>
+                TIMES
+                <small>OF INDIA</small>
+            </div>
+        </div>
+
+        <div class="partner">
+            <span class="partner-symbol">◈</span>
+            <div>
+                BENNETT
+                <small>UNIVERSITY</small>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+
+        <div class="trust-item">
+            <span>✦</span> Real-world Experience
+        </div>
+
+        <div class="trust-item">
+            <span>✓</span> Mentorship
+        </div>
+
+        <div class="trust-item">
+            <span>✧</span> Research Opportunities
+        </div>
+
+        <div class="trust-item">
+            <span>↗</span> Global Exposure
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROGRAMS SECTION -->
+<section class="content-section" id="programs">
+
+    <div class="section-tag">Explore Your Potential</div>
+
+    <h2>Turn Your Ideas Into Impact.</h2>
+
+    <p class="section-desc">
+        Go beyond traditional learning. Discover opportunities
+        that help you build skills, create projects and stand out.
+    </p>
+
+    <div class="program-grid">
+
+        <div class="program-card" id="internships">
+            <div class="program-icon">✦</div>
+            <h3>Summer Programs</h3>
+            <p>
+                Explore your interests through immersive learning
+                experiences and meaningful projects.
+            </p>
+        </div>
+
+        <div class="program-card" id="research">
+            <div class="program-icon">⌘</div>
+            <h3>Research & Innovation</h3>
+            <p>
+                Work on real research ideas, explore new possibilities
+                and develop your own perspectives.
+            </p>
+        </div>
+
+        <div class="program-card" id="team">
+            <div class="program-icon">↗</div>
+            <h3>Internship Opportunities</h3>
+            <p>
+                Gain practical exposure, collaborate with experts
+                and build a portfolio of real work.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <p>Let's build something meaningful together. <span>GradCircle ✳</span></p>
+    <p style="margin-top:10px;opacity:.6;">
+        © 2026 GradCircle. All rights reserved.
+    </p>
+</footer>
+
+</body>
+</html>
